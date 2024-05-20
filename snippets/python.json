@@ -1,0 +1,39 @@
+{
+	"header": {
+		"prefix": "header",
+		"body": [
+			"\"\"\"",
+			"@File    :  ${TM_FILENAME}",
+			"@Author  :  jichun_pu",
+			"@Mail    :  jichun_pu@intsig.net",
+			"@Date    :  ${CURRENT_YEAR}/${CURRENT_MONTH}/${CURRENT_DATE} ${CURRENT_HOUR}:${CURRENT_MINUTE}",
+			"@Desc    :  desc",
+			"\"\"\""
+		]
+	},
+	"docs": {
+		"prefix": "docs",
+		"body": [
+			"\"\"\"",
+			"${1:A one-line summary.}",
+			"",
+			"${2:Detailed description.}$0",
+			"",
+			"Args:",
+			"    ${5:argument_name} (${6:type}): ${7:description.}",
+			"",
+			"Returns:",
+			"    ${3:type}: {4:Description of the returned object.}",
+			"",
+			"Example:",
+			"    # ${8:Description of my example.}",
+			"    ${9:use_it_this_way(arg1, arg2)}",
+			"\"\"\""
+		]
+	},
+	"raises docstring": {
+		"prefix": "raisesdocs",
+		"body": ["Raises:", "    ${1:ErrorName}: ${2:Error description.}$0"],
+		"description": "A Python docstring for methods when we want to be exclicit about the errors it Raises. Use it only when is relevant."
+	}
+}
