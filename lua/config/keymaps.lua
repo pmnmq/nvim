@@ -68,12 +68,6 @@ local keymaps = {
     target = "S",
     option = opts_n_s,
   },
-  {
-    mode = "",
-    origin = "s",
-    target = "<nop>",
-    option = opts,
-  },
   -- 退出
   {
     mode = "",

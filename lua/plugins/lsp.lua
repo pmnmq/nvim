@@ -70,10 +70,10 @@ return {
     opts = {
       ensure_installed = {
         "stylua",
-        "ruff",
         "beautysh",
         "biome",
         "clang-format",
+        "csharpier",
       },
     },
     ---@param opts MasonSettings | {ensure_installed: string[]}

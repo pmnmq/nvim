@@ -112,25 +112,16 @@ return {
       { "windwp/nvim-ts-autotag", config = true },
       "HiPhish/nvim-ts-rainbow2",
     },
-    event = { "VeryLazy" },
     opts = {
 			-- stylua: ignore
       ensure_installed = {
 				"c", "lua", "rust", "go", "python", "javascript", "json", "css",
         "cpp", "html", "yaml", "toml", "tsx", "typescript", "proto",
         "cmake", "bash", "gomod", "regex", "dockerfile", "c_sharp", "dart",
-        "markdown", "markdown_inline",
+        "markdown", "markdown_inline", "kotlin"
       },
 
-      autotag = {
-        enable = true,
-      },
-      sync_install = false,
       ignore_install = { "ruby", "julia", "php", "cuda", "tlaplus", "perl" },
-      highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-      },
       playground = {
         enable = true,
       },
@@ -149,36 +140,6 @@ return {
       },
       rainbow = {
         enable = true,
-      },
-      textobjects = {
-        select = {
-          enable = true,
-          include_surrounding_whitespace = false,
-          lookahead = true,
-          keymaps = {
-            -- You can use the capture groups defined in textobjects.scm
-            ["af"] = "@function.outer",
-            ["if"] = "@function.inner",
-            ["ac"] = "@class.outer",
-            -- You can optionally set descriptions to the mappings (used in the desc parameter of
-            -- nvim_buf_set_keymap) which plugins like which-key display
-            ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
-            -- You can also use captures from other query groups like `locals.scm`
-            ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
-          },
-          -- You can choose the select mode (default is charwise 'v')
-          --
-          -- Can also be a function which gets passed a table with the keys
-          -- * query_string: eg '@function.inner'
-          -- * method: eg 'v' or 'o'
-          -- and should return the mode ('v', 'V', or '<c-v>') or a table
-          -- mapping query_strings to modes.
-          selection_modes = {
-            ["@parameter.outer"] = "v", -- charwise
-            ["@function.outer"] = "V", -- linewise
-            ["@class.outer"] = "<c-v>", -- blockwise
-          },
-        },
       },
     },
     main = "nvim-treesitter.configs",
