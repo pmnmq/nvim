@@ -174,6 +174,7 @@ return {
     "nvimdev/dashboard-nvim",
     opts = function()
       local version = "v" .. vim.version().major .. "." .. vim.version().minor .. "." .. vim.version().patch
+      local home = os.getenv("HOME")
       local opts = {
         theme = "doom",
         hide = {
@@ -204,7 +205,7 @@ return {
         },
         preview = {
           command = "cat",
-          file_path = "/home/pujic/.config/nvim.bak/neovim.cat",
+          file_path = home .. "/.config/nvim/neovim.cat",
           file_height = 11,
           file_width = 70,
         },
