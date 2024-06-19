@@ -110,15 +110,15 @@ return {
       { "RRethy/nvim-treesitter-textsubjects" },
       { "RRethy/nvim-treesitter-endwise" },
       { "windwp/nvim-ts-autotag", config = true },
-      "HiPhish/nvim-ts-rainbow2",
     },
     opts = {
-			-- stylua: ignore
+  	-- stylua: ignore
       ensure_installed = {
 				"c", "lua", "rust", "go", "python", "javascript", "json", "css",
         "cpp", "html", "yaml", "toml", "tsx", "typescript", "proto",
         "cmake", "bash", "gomod", "regex", "dockerfile", "c_sharp", "dart",
-        "markdown", "markdown_inline", "kotlin"
+        "markdown", "markdown_inline", "kotlin", "http", "groovy", "gitignore",
+				"git_config", "dot", "csv", "asm"
       },
 
       ignore_install = { "ruby", "julia", "php", "cuda", "tlaplus", "perl" },
@@ -137,9 +137,6 @@ return {
           scope_incremental = "<BS>",
           node_decremental = "<TAB>",
         },
-      },
-      rainbow = {
-        enable = true,
       },
     },
     main = "nvim-treesitter.configs",
@@ -202,6 +199,23 @@ return {
           },
         },
       }
+    end,
+  },
+  {
+    "hiphish/rainbow-delimiters.nvim",
+    event = "BufEnter",
+    config = function()
+      require("rainbow-delimiters.setup").setup({
+        highlight = {
+          "RainbowDelimiterRed",
+          "RainbowDelimiterYellow",
+          "RainbowDelimiterBlue",
+          "RainbowDelimiterOrange",
+          "RainbowDelimiterGreen",
+          "RainbowDelimiterViolet",
+          "RainbowDelimiterCyan",
+        },
+      })
     end,
   },
 }

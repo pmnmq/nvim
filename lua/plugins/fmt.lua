@@ -13,6 +13,9 @@ return {
           zsh = { "beautysh" },
           javascript = { "biome" },
           rust = { "rustfmt" },
+          csharp = { "csharpier" },
+          c_sharp = { "csharpier" },
+          cs = { "csharpier" },
         },
         formatters = {
           injected = { options = { ignore_errors = true } },
