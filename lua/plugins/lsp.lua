@@ -58,6 +58,17 @@ return {
         yamlls = {},
         clangd = {},
         bufls = {},
+        kotlin_language_server = {
+          settings = {
+            kotlin = {
+              compiler = {
+                jvm = {
+                  target = "17",
+                },
+              },
+            },
+          },
+        },
       },
     },
   },
