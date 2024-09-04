@@ -59,7 +59,7 @@ local keymaps = {
     mode = "n",
     origin = ":nohlsearch<CR>",
     target = "<Leader><CR>",
-    option = opts_n,
+    option = opts_n_s,
   },
   --文件保存
   {

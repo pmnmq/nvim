@@ -81,7 +81,7 @@ return {
     opts = {
       ensure_installed = {
         "stylua",
-        "beautysh",
+        "shfmt",
         "biome",
         "clang-format",
         "csharpier",
