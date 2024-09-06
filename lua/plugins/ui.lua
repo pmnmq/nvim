@@ -61,15 +61,15 @@ return {
             {
               function()
                 local msg = "No Active Lsp"
-                local clients = vim.lsp.get_active_clients({ id = 1 })
-                local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
+                local clients = vim.lsp.get_clients({ id = 1 })
+                local buf_ft = vim.api.nvim_get_option_value("filetype", { buf = 0 })
                 for _, client in ipairs(clients) do
                   local filetypes = client.config.filetypes
                   if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
                     msg = client.name
                   end
                 end
-                if next(vim.lsp.get_active_clients()) ~= nil then
+                if next(vim.lsp.get_clients()) ~= nil then
                   msg = "  LSP:" .. msg
                 end
                 return msg
@@ -160,7 +160,6 @@ return {
   },
   {
     "gorbit99/codewindow.nvim",
-    lazy = "VeryLazy",
     event = "BufEnter",
     config = function()
       local codewindow = require("codewindow")
@@ -170,63 +169,4 @@ return {
       codewindow.apply_default_keybinds()
     end,
   },
-  -- {
-  --   "nvimdev/dashboard-nvim",
-  --   opts = function()
-  --     local version = "v" .. vim.version().major .. "." .. vim.version().minor .. "." .. vim.version().patch
-  --     local home = os.getenv("HOME")
-  --     local opts = {
-  --       theme = "doom",
-  --       hide = {
-  --         -- this is taken care of by lualine
-  --         -- enabling this messes up the actual laststatus setting after loading a file
-  --         statusline = false,
-  --       },
-  --       config = {
-  --         -- header = vim.split(logo, "\n"),
-  -- 			-- stylua: ignore
-  -- 			center = {
-  -- 				{ action = LazyVim.telescope("files"),                                 desc = " Find File",       icon = " ", key = "f" },
-  -- 				{ action = "ene | startinsert",                                        desc = " New File",        icon = " ", key = "n" },
-  -- 				{ action = "Telescope oldfiles",                                       desc = " Recent Files",    icon = " ", key = "r" },
-  -- 				{ action = "Telescope live_grep",                                      desc = " Find Text",       icon = " ", key = "g" },
-  -- 				{ action = [[lua LazyVim.telescope.config_files()()]],                 desc = " Config",          icon = " ", key = "c" },
-  -- 				{ action = 'lua require("persistence").load()',                        desc = " Restore Session", icon = " ", key = "s" },
-  -- 				{ action = "LazyExtras",                                               desc = " Lazy Extras",     icon = " ", key = "x" },
-  -- 				{ action = "Lazy",                                                     desc = " Lazy",            icon = "󰒲 ", key = "l" },
-  -- 				{ action = "qa",                                                       desc = " Quit",            icon = " ", key = "q" },
-  -- 			},
-  -- 			-- stylua: ignore
-  --         footer = function()
-  --           local stats = require("lazy").stats()
-  --           local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-  --           return { "⚡ Neovim " .. version .. " loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms" }
-  --         end,
-  --       },
-  --       preview = {
-  --         command = "cat",
-  --         file_path = home .. "/.config/nvim/neovim.cat",
-  --         file_height = 11,
-  --         file_width = 70,
-  --       },
-  --     }
-  --
-  --     for _, button in ipairs(opts.config.center) do
-  --       button.desc = button.desc .. string.rep(" ", 43 - #button.desc)
-  --       button.key_format = "  %s"
-  --     end
-  --
-  --     -- close Lazy and re-open when the dashboard is ready
-  --     if vim.o.filetype == "lazy" then
-  --       vim.cmd.close()
-  --       vim.api.nvim_create_autocmd("User", {
-  --         pattern = "DashboardLoaded",
-  --         callback = function()
-  --           require("lazy").show()
-  --         end,
-  --       })
-  --     end
-  --     return opts
-  --   end,
-  -- },
 }

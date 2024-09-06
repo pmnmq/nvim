@@ -77,18 +77,6 @@ return {
     opt = {},
   },
   {
-    "gorbit99/codewindow.nvim",
-    lazy = "VeryLazy",
-    event = "BufEnter",
-    config = function()
-      local codewindow = require("codewindow")
-      codewindow.setup({
-        minimap_width = 12,
-      })
-      codewindow.apply_default_keybinds()
-    end,
-  },
-  {
     "RRethy/vim-illuminate",
     event = "BufReadPost",
     config = function()

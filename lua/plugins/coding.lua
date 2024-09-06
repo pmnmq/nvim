@@ -17,6 +17,8 @@ return {
     "hrsh7th/nvim-cmp",
     dependencies = {
       "hrsh7th/cmp-emoji",
+      "chrisgrieser/cmp-nerdfont",
+      "SergioRibera/cmp-dotenv",
     },
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
@@ -53,6 +55,8 @@ return {
           end
         end, { "i", "s" }),
       })
+      table.insert(opts.sources, { name = "nerdfont" })
+      table.insert(opts.sources, { name = "dotenv" })
     end,
   },
   {
