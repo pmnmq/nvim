@@ -30,18 +30,18 @@ local keymaps = {
     option = opts_n_s,
   },
   -- 快速移动
-  {
-    mode = "",
-    origin = "5j",
-    target = "<A-j>",
-    option = opts_n_s,
-  },
-  {
-    mode = "",
-    origin = "5k",
-    target = "<A-k>",
-    option = opts_n_s,
-  },
+  -- {
+  --   mode = "",
+  --   origin = "5j",
+  --   target = "<A-j>",
+  --   option = opts_n_s,
+  -- },
+  -- {
+  --   mode = "",
+  --   origin = "5k",
+  --   target = "<A-k>",
+  --   option = opts_n_s,
+  -- },
   {
     mode = "",
     origin = "$",
