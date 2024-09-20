@@ -2,8 +2,8 @@ local actions = require("telescope.actions")
 
 return {
   "nvim-telescope/telescope.nvim",
-  opts = {
-    defaults = {
+  opts = function(_, opts)
+    opts.defaults = {
       prompt_prefix = " ",
       selection_caret = "➜ ",
       mappings = {
@@ -19,6 +19,7 @@ return {
           ["q"] = require("telescope.actions").close,
         },
       },
-    },
-  },
+    }
+    return opts
+  end,
 }

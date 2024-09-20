@@ -34,6 +34,7 @@ require("lazy").setup({
     { import = "plugins.editor.rainbow-bracket" },
     { import = "plugins.editor.session" },
     { import = "plugins.editor.surround" },
+    { import = "plugins.editor.telescope" },
     { import = "plugins.editor.term" },
     { import = "plugins.editor.tree-sitter" },
     { import = "plugins.git.lazygit" },
