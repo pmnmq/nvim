@@ -27,6 +27,7 @@ require("lazy").setup({
     { import = "plugins.coding.cmp" },
     { import = "plugins.editor.colorizer" },
     { import = "plugins.editor.executor" },
+    { import = "plugins.editor.fast-jk" },
     { import = "plugins.editor.flash" },
     { import = "plugins.editor.fold" },
     { import = "plugins.editor.multicursors" },
