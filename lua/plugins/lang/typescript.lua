@@ -9,19 +9,17 @@ return {
   --   end,
   -- },
   {
-    "williamboman/mason.nvim",
-    opts = function(_, opts)
-      vim.tbl_extend("keep", opts.ensure_installed, { "biome", "ts_ls" })
-      return opts
-    end,
+    "mason-org/mason.nvim",
+    opts = {
+      ensure_installed = { "biome", "typescript-language-server" },
+    },
   },
   {
 
     "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      vim.tbl_extend("keep", opts.ensure_installed, { "javascript", "typescript", "css", "html", "tsx" })
-      return opts
-    end,
+    opts = {
+      ensure_installed = { "javascript", "typescript", "css", "html", "tsx" },
+    },
   },
   {
     "stevearc/conform.nvim",

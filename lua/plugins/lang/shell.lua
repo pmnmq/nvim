@@ -12,18 +12,16 @@ return {
     },
   },
   {
-    "williamboman/mason.nvim",
-    opts = function(_, opts)
-      vim.tbl_extend("keep", opts.ensure_installed, { "bash-language-server", "shfmt" })
-      return opts
-    end,
+    "mason-org/mason.nvim",
+    opts = {
+      ensure_installed = { "bash-language-server", "shfmt" },
+    },
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      vim.tbl_extend("keep", opts.ensure_installed, { "bash", "fish" })
-      return opts
-    end,
+    opts = {
+      ensure_installed = { "bash", "fish" },
+    },
   },
   {
     "stevearc/conform.nvim",

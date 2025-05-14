@@ -1,27 +1,25 @@
 local config_formatter = require("plugins.utils.comform").config_formatter
 
 return {
-  -- {
-  --   "neovim/nvim-lspconfig",
-  --   opts = function(_, opts)
-  --     opts.servers.taplo = {}
-  --     return opts
-  --   end,
-  -- },
   {
-    "williamboman/mason.nvim",
+    "neovim/nvim-lspconfig",
     opts = function(_, opts)
-      vim.tbl_extend("keep", opts.ensure_installed, { "clang-format", "protols" })
+      opts.servers.protols = {}
       return opts
     end,
   },
   {
+    "mason-org/mason.nvim",
+    opts = {
+      ensure_installed = { "protols" },
+    },
+  },
+  {
 
     "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      table.insert(opts.ensure_installed, "proto")
-      return opts
-    end,
+    opts = {
+      ensure_installed = { "proto" },
+    },
   },
   {
     "stevearc/conform.nvim",

@@ -17,17 +17,15 @@ return {
     end,
   },
   {
-    "williamboman/mason.nvim",
-    opts = function(_, opts)
-      vim.tbl_extend("keep", opts.ensure_installed, { "kotlin-language-server", "ktfmt", "ktlint" })
-      return opts
-    end,
+    "mason-org/mason.nvim",
+    opts = {
+      ensure_installed = { "kotlin-language-server", "ktfmt", "ktlint" },
+    },
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      vim.tbl_extend("keep", opts.ensure_installed, { "kotlin", "java", "groovy" })
-      return opts
-    end,
+    opts = {
+      ensure_installed = { "kotlin", "java", "groovy" },
+    },
   },
 }

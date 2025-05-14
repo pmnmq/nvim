@@ -1,26 +1,30 @@
 local config_formatter = require("plugins.utils.comform").config_formatter
 
 return {
-  -- {
-  --   "neovim/nvim-lspconfig",
-  --   opts = function(_, opts)
-  --     opts.servers.sqlfluff = {}
-  --     return opts
-  --   end,
-  -- },
   {
-    "williamboman/mason.nvim",
+    "neovim/nvim-lspconfig",
     opts = function(_, opts)
-      vim.tbl_extend("keep", opts.ensure_installed, { "sqlfluff" })
+      opts.servers.postgres_lsp = {
+        cmd = { "postgrestools", "lsp-proxy" },
+        filetypes = {
+          "sql",
+        },
+        root_markers = { "postgrestools.jsonc" },
+      }
       return opts
     end,
   },
   {
+    "mason-org/mason.nvim",
+    opts = {
+      ensure_installed = { "sqlfluff", "postgrestools" },
+    },
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      table.insert(opts.ensure_installed, "sql")
-      return opts
-    end,
+    opts = {
+      ensure_installed = { "sql" },
+    },
   },
   {
     "stevearc/conform.nvim",

@@ -9,21 +9,17 @@ return {
   --   end,
   -- },
   {
-    "williamboman/mason.nvim",
-    opts = function(_, opts)
-      if vim.fn.executable("taplo") ~= 1 then
-        vim.tbl_extend("keep", opts.ensure_installed, { "taplo" })
-      end
-      return opts
-    end,
+    "mason-org/mason.nvim",
+    opts = {
+      ensure_installed = { "taplo" },
+    },
   },
   {
 
     "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      table.insert(opts.ensure_installed, "toml")
-      return opts
-    end,
+    opts = {
+      ensure_installed = { "toml" },
+    },
   },
   {
     "stevearc/conform.nvim",

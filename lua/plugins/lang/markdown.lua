@@ -7,23 +7,20 @@ return {
   --   end,
   -- },
   {
-    "williamboman/mason.nvim",
-    opts = function(_, opts)
-      vim.tbl_extend("keep", opts.ensure_installed, { "marksman" })
-      return opts
-    end,
+    "mason-org/mason.nvim",
+    opts = {
+      ensure_installed = { "marksman" },
+    },
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      vim.tbl_extend("keep", opts.ensure_installed, {"markdown", "markdown_inline"})
-      return opts
-    end,
+    opts = {
+      ensure_installed = { "markdown", "markdown_inline" },
+    },
   },
   {
     "MeanderingProgrammer/render-markdown.nvim",
     opts = {
-      file_types = { "markdown", "norg", "rmd", "org" },
       code = {
         sign = false,
         width = "block",
@@ -33,11 +30,14 @@ return {
         sign = false,
         icons = {},
       },
+      checkbox = {
+        enabled = false,
+      },
     },
-    ft = { "markdown" },
+    ft = { "markdown", "norg", "rmd", "org", "codecompanion" },
     config = function(_, opts)
       require("render-markdown").setup(opts)
-      LazyVim.toggle.map("<leader>um", {
+      Snacks.toggle({
         name = "Render Markdown",
         get = function()
           return require("render-markdown.state").enabled
@@ -50,7 +50,7 @@ return {
             m.disable()
           end
         end,
-      })
+      }):map("<leader>um")
     end,
   },
 }

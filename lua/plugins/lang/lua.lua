@@ -32,24 +32,22 @@ return {
     end,
   },
   {
-    "williamboman/mason.nvim",
-    opts = function(_, opts)
-      vim.tbl_extend("keep", opts.ensure_installed, { "lua_ls", "stylua" })
-      return opts
-    end,
+    "mason-org/mason.nvim",
+    opts = {
+      ensure_installed = { "lua-language-server", "stylua" },
+    },
   },
   {
 
     "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      table.insert(opts.ensure_installed, "lua")
-      return opts
-    end,
+    opts = {
+      ensure_installed = { "lua" },
+    },
   },
   {
     "stevearc/conform.nvim",
     opts = function(_, opts)
-			opts.formatters_by_ft.lua = opts.formatters_by_ft.lua or {}
+      opts.formatters_by_ft.lua = opts.formatters_by_ft.lua or {}
       table.insert(opts.formatters_by_ft.lua, "stylua")
       return opts
     end,
