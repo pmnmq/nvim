@@ -26,10 +26,10 @@ return {
   },
   {
     "stevearc/conform.nvim",
-    opts = function(_, opts)
-      config_formatter(opts, "python", "ruff_format")
-      config_formatter(opts, "python", "ruff_fix")
-      return opts
-    end,
+    opts = {
+      formatters_by_ft = {
+        python = { "ruff_fix", "ruff_format" },
+      },
+    },
   },
 }
