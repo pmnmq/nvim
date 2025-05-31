@@ -22,9 +22,10 @@ return {
   },
   {
     "stevearc/conform.nvim",
-    opts = function(_, opts)
-      config_formatter(opts, "rust", "rustfmt")
-      return opts
-    end,
+    opts = {
+      formatters_by_ft = {
+        rust = { "rustfmt" },
+      },
+    },
   },
 }

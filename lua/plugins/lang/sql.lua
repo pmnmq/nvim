@@ -1,5 +1,3 @@
-local config_formatter = require("plugins.utils.comform").config_formatter
-
 return {
   {
     "neovim/nvim-lspconfig",
@@ -28,9 +26,10 @@ return {
   },
   {
     "stevearc/conform.nvim",
-    opts = function(_, opts)
-      config_formatter(opts, "sql", "sqlfluff")
-      return opts
-    end,
+    opts = {
+      formatters_by_ft = {
+        sql = { "sqlfluff" },
+      },
+    },
   },
 }

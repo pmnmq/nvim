@@ -20,9 +20,10 @@ return {
   },
   {
     "stevearc/conform.nvim",
-    opts = function(_, opts)
-      config_formatter(opts, "nix", "nixfmt")
-      return opts
-    end,
+    opts = {
+      formatters_by_ft = {
+        nix = { "nixfmt" },
+      },
+    },
   },
 }

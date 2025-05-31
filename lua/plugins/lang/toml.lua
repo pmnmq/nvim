@@ -23,9 +23,10 @@ return {
   },
   {
     "stevearc/conform.nvim",
-    opts = function(_, opts)
-      config_formatter(opts, "toml", "taplo")
-      return opts
-    end,
+    opts = {
+      formatters_by_ft = {
+        toml = { "taplo" },
+      },
+    },
   },
 }

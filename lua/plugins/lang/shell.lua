@@ -1,5 +1,3 @@
-local config_formatter = require("plugins.utils.comform").config_formatter
-
 return {
   {
     "neovim/nvim-lspconfig",
@@ -25,10 +23,11 @@ return {
   },
   {
     "stevearc/conform.nvim",
-    opts = function(_, opts)
-      config_formatter(opts, "bash", "shfmt")
-      config_formatter(opts, "zsh", "shfmt")
-      return opts
-    end,
+    opts = {
+      formatters_by_ft = {
+        bash = { "shfmt" },
+        zsh = { "shfmt" },
+      },
+    },
   },
 }

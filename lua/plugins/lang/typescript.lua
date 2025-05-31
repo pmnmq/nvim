@@ -23,12 +23,13 @@ return {
   },
   {
     "stevearc/conform.nvim",
-    opts = function(_, opts)
-      config_formatter(opts, "javascript", "biome")
-      config_formatter(opts, "javascriptreact", "biome")
-      config_formatter(opts, "typescript", "biome")
-      config_formatter(opts, "typescriptreact", "biome")
-      return opts
-    end,
+    opts = {
+      formatters_by_ft = {
+        javascript = { "biome" },
+        javascriptreact = { "biome" },
+        typescript = { "biome" },
+        typescriptreact = { "biome" },
+      },
+    },
   },
 }

@@ -23,9 +23,10 @@ return {
   },
   {
     "stevearc/conform.nvim",
-    opts = function(_, opts)
-      config_formatter(opts, "proto", "clang-format")
-      return opts
-    end,
+    opts = {
+      formatters_by_ft = {
+        proto = { "clang-format" },
+      },
+    },
   },
 }
