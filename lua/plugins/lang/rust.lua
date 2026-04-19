@@ -11,7 +11,7 @@ return {
   {
     "mason-org/mason.nvim",
     opts = {
-      ensure_installed = { "rust-analyzer", "codelldb", "rustfmt" },
+      ensure_installed = { "rust-analyzer", "codelldb" },
     },
   },
   {

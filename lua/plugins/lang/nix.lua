@@ -1,5 +1,3 @@
-local config_formatter = require("plugins.utils.comform").config_formatter
-
 return {
   {
     "mason-org/mason.nvim",

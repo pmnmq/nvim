@@ -3,11 +3,11 @@ return {
     "neovim/nvim-lspconfig",
     opts = function(_, opts)
       opts.servers.postgres_lsp = {
-        cmd = { "postgrestools", "lsp-proxy" },
+        cmd = { "postgres-language-server", "lsp-proxy" },
         filetypes = {
           "sql",
         },
-        root_markers = { "postgrestools.jsonc" },
+        root_markers = { "postgres-language-server.jsonc" },
       }
       return opts
     end,
@@ -15,7 +15,7 @@ return {
   {
     "mason-org/mason.nvim",
     opts = {
-      ensure_installed = { "sqlfluff", "postgrestools" },
+      ensure_installed = { "sqlfluff", "postgres-language-server" },
     },
   },
   {

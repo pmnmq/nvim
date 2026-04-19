@@ -1,5 +1,5 @@
 local disabled = {
-  { "echasnovski/mini.surround" },
+  -- { "echasnovski/mini.surround" },
   { "nvimtools/none-ls.nvim" },
   { "mfussenegger/nvim-lint" },
   { "folke/edgy.nvim" },
